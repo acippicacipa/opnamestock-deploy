@@ -14,8 +14,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://acippicacipa.pythonanywhere.com',
-        changeOrigin: true,
-        secure: false,
+        changeOrigin: true, // Rewrites the Origin header to match the target
       },
     },
   },
