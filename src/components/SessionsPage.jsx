@@ -38,24 +38,24 @@ export default function SessionsPage() {
     }
   }
 
-  const handleExportCSV = async (sessionId, lokasi) => {
-    try {
-      const response = await fetch(`/api/sessions/${sessionId}/export`)
-      const blob = await response.blob()
+  // const handleExportCSV = async (sessionId, lokasi) => {
+  //   try {
+  //     const response = await fetch(`/api/sessions/${sessionId}/export`)
+  //     const blob = await response.blob()
       
-      const url = window.URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `stock_opname_${lokasi}_${sessionId}_${new Date().toISOString().split('T')[0]}.csv`
-      document.body.appendChild(a)
-      a.click()
-      window.URL.revokeObjectURL(url)
-      document.body.removeChild(a)
-    } catch (error) {
-      console.error('Error exporting CSV:', error)
-      alert('Terjadi kesalahan saat export CSV')
-    }
-  }
+  //     const url = window.URL.createObjectURL(blob)
+  //     const a = document.createElement('a')
+  //     a.href = url
+  //     a.download = `stock_opname_${lokasi}_${sessionId}_${new Date().toISOString().split('T')[0]}.csv`
+  //     document.body.appendChild(a)
+  //     a.click()
+  //     window.URL.revokeObjectURL(url)
+  //     document.body.removeChild(a)
+  //   } catch (error) {
+  //     console.error('Error exporting CSV:', error)
+  //     alert('Terjadi kesalahan saat export CSV')
+  //   }
+  // }
 
   const handleExportExcel = async (sessionId, lokasi) => {
     try {
@@ -73,6 +73,29 @@ export default function SessionsPage() {
     } catch (error) {
       console.error('Error exporting Excel:', error)
       alert('Terjadi kesalahan saat export Excel')
+    }
+  }
+
+  const handleViewReport = (sessionId) => {
+    navigate(`/report/${sessionId}`)
+  }
+
+  const handleExportReport = async (sessionId, lokasi) => {
+    try {
+      const response = await fetch(`/api/sessions/${sessionId}/report/excel`)
+      const blob = await response.blob()
+      
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `laporan_stock_opname_${lokasi}_${sessionId}_${new Date().toISOString().split('T')[0]}.xlsx`
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+    } catch (error) {
+      console.error('Error exporting report:', error)
+      alert('Terjadi kesalahan saat export laporan')
     }
   }
 
@@ -152,8 +175,10 @@ export default function SessionsPage() {
                         </div>
                       </div>
                       
-                      <div className="flex gap-2">
-                        {session.status === 'active' ? (
+                      <div className="flex">
+                        <div className="text-sm text-gray-600 space-y-1">
+                          {session.status === 'active' ? (
+                            <div>
                           <Button 
                             onClick={() => navigate(`/stock-opname/${session.id}`)}
                             size="sm"
@@ -161,25 +186,40 @@ export default function SessionsPage() {
                             <Eye className="h-4 w-4 mr-2" />
                             Lanjutkan
                           </Button>
+                          </div>
                         ) : (
                           <>
+                          <div>
                             <Button  
                               size="sm"
                               onClick={() => navigate(`/stock-opname/${session.id}`)}
                             >
                               <Eye className="h-4 w-4 mr-2" />
-                              Lihat Detail
+                              Lihat
                             </Button>
-                            
+                          </div>
+                          <div>
+                            <Button 
+                              size="sm"
+                              onClick={() => handleViewReport(session.id)}
+                            >
+                              <FileSpreadsheet className="h-4 w-4 mr-2" />
+                              Hasil
+                            </Button>
+                          </div>
+                          <div>
                             <Button  
                               size="sm"
                               onClick={() => handleExportExcel(session.id, session.lokasi)}
                             >
                               <FileSpreadsheet className="h-4 w-4 mr-2" />
-                              Export Excel
+                              Export
                             </Button>
+                          </div>
                           </>
                         )}
+                        </div>
+                        
                       </div>
                     </div>
                     
