@@ -3,6 +3,7 @@ import HomePage from './components/HomePage'
 import StockOpnamePage from './components/StockOpnamePage'
 import ProductsPage from './components/ProductsPage'
 import SessionsPage from './components/SessionsPage'
+import ReportPage from './components/ReportPage'
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/stock-opname/:sessionId" element={<StockOpnamePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/sessions" element={<SessionsPage />} />
+        <Route path="/report/:sessionId" element={<ReportPage />} />
       </Routes>
     </Router>
   )
