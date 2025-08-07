@@ -56,6 +56,38 @@ export default function ReportPage() {
     }
   }
 
+  const formatDateTimeJakarta = (dateString) => {
+  // Return an empty string or some placeholder if the date is null/undefined
+  if (!dateString) {
+    return ''; 
+  }
+
+  try {
+    const date = new Date(dateString);
+
+    // Check if the date is valid after parsing
+    if (isNaN(date.getTime())) {
+      return 'Invalid Date';
+    }
+
+    const options = {
+      timeZone: 'Asia/Jakarta', // The key part for timezone conversion
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false // Use 24-hour format
+    };
+
+    return new Intl.DateTimeFormat('id-ID', options).format(date);
+  } catch (error) {
+    console.error("Error formatting date:", error);
+    return 'Invalid Date';
+  }
+};
+
   const formatDateTime = (dateString) => {
     if (!dateString) return '-'
     return new Date(dateString).toLocaleString('id-ID', {
@@ -134,7 +166,7 @@ export default function ReportPage() {
               Kembali
             </Button>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Laporan SO</h1>
+              <h1 className="text-3xl font-bold text-gray-900">Report</h1>
               <p className="text-600">{report?.session_info?.lokasi}</p>
             </div>
           </div>
@@ -285,4 +317,5 @@ export default function ReportPage() {
     </div>
   )
 }
+
 
