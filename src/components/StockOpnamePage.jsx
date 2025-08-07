@@ -228,7 +228,7 @@ export default function StockOpnamePage() {
                         >
                           <div className="font-medium">{product.nama_produk}</div>
                           <div className="text-sm text-gray-500">
-                            {product.kode_produk} • {product.kategori_produk}
+                            {product.kode_produk} • {product.saldo_awal}
                           </div>
                         </div>
                       ))}
@@ -242,7 +242,7 @@ export default function StockOpnamePage() {
                 <div className="p-3 bg-blue-50 rounded-md">
                   <div className="font-medium">{selectedProduct.nama_produk}</div>
                   <div className="text-sm text-gray-600">
-                    {selectedProduct.kode_produk} • {selectedProduct.kategori_produk}
+                    {selectedProduct.kode_produk} • {selectedProduct.saldo_awal}
                   </div>
                 </div>
               )}
@@ -307,7 +307,7 @@ export default function StockOpnamePage() {
                         <div className="flex-1">
                           <div className="font-medium">{detail.product.nama_produk}</div>
                           <div className="text-sm text-gray-500">
-                            {detail.product.kode_produk} • {detail.product.kategori_produk}
+                            {detail.product.kode_produk} • {detail.product.saldo_awal}
                           </div>
                           {detail.catatan && (
                             <div className="text-sm text-gray-600 mt-1">
