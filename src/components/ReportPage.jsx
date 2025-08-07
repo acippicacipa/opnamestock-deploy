@@ -187,11 +187,11 @@ export default function ReportPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Waktu Mulai</p>
-                <p className="font-semibold">{formatDateTime(report?.session_info?.waktu_mulai)}</p>
+                <p className="font-semibold">{formatDateTimeJakarta(report?.session_info?.waktu_mulai)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Waktu Selesai</p>
-                <p className="font-semibold">{formatDateTime(report?.session_info?.waktu_selesai)}</p>
+                <p className="font-semibold">{formatDateTimeJakarta(report?.session_info?.waktu_selesai)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Status</p>
@@ -317,5 +317,6 @@ export default function ReportPage() {
     </div>
   )
 }
+
 
 
