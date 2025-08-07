@@ -178,24 +178,19 @@ export default function SessionsPage() {
                       <div className="flex">
                         <div className="text-sm text-gray-600 space-y-1">
                           {session.status === 'active' ? (
-                            <div>
-                          <Button 
-                            onClick={() => navigate(`/stock-opname/${session.id}`)}
-                            size="sm"
-                          >
-                            <Eye className="h-4 w-4 mr-2" />
-                            Lanjutkan
-                          </Button>
-                          </div>
-                          <div>
-                            <Button 
-                              size="sm"
-                              onClick={() => handleViewReport(session.id)}
-                            >
-                              <FileSpreadsheet className="h-4 w-4 mr-2" />
-                              Hasil Sementara
-                            </Button>
-                          </div>
+                            <>
+                              <Button 
+                                onClick={() => navigate(`/stock-opname/${session.id}`)}
+                                size="sm"
+                              >
+                                <Eye className="h-4 w-4 mr-2" />
+                                Lanjutkan
+                              </Button>
+                              <Button size="sm" onClick={() => handleViewReport(session.id)}>
+                                <FileSpreadsheet className="h-4 w-4 mr-2" />
+                                Hasil Sementara
+                              </Button>
+                            </>
                         ) : (
                           <>
                           <div>
