@@ -183,9 +183,8 @@ export default function StockOpnamePage() {
             Kembali
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Stock Opname</h1>
             <p className="text-gray-600">
-              Lokasi: {session.lokasi} • Status: 
+              Lokasi SO: {session.lokasi} <br/> Status: 
               <Badge variant={session.status === 'active' ? 'default' : 'secondary'} className="ml-2">
                 {session.status === 'active' ? 'Aktif' : 'Selesai'}
               </Badge>
@@ -228,7 +227,7 @@ export default function StockOpnamePage() {
                         >
                           <div className="font-medium">{product.nama_produk}</div>
                           <div className="text-sm text-gray-500">
-                            {product.kode_produk} • {product.saldo_awal}
+                            {product.kode_produk} • Stok : {product.saldo_awal}
                           </div>
                         </div>
                       ))}
@@ -242,7 +241,7 @@ export default function StockOpnamePage() {
                 <div className="p-3 bg-blue-50 rounded-md">
                   <div className="font-medium">{selectedProduct.nama_produk}</div>
                   <div className="text-sm text-gray-600">
-                    {selectedProduct.kode_produk} • {selectedProduct.saldo_awal}
+                    {selectedProduct.kode_produk} • Stok : {selectedProduct.saldo_awal}
                   </div>
                 </div>
               )}
@@ -307,7 +306,7 @@ export default function StockOpnamePage() {
                         <div className="flex-1">
                           <div className="font-medium">{detail.product.nama_produk}</div>
                           <div className="text-sm text-gray-500">
-                            {detail.product.kode_produk} • {detail.product.saldo_awal}
+                            {detail.product.kode_produk} • Stok : {detail.product.saldo_awal}
                           </div>
                           {detail.catatan && (
                             <div className="text-sm text-gray-600 mt-1">
