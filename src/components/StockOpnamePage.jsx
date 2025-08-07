@@ -21,6 +21,7 @@ export default function StockOpnamePage() {
   const [catatan, setCatatan] = useState('')
   const [details, setDetails] = useState([])
   const [loading, setLoading] = useState(false)
+  const quantityInputRef = useRef(null);
 
   useEffect(() => {
     fetchSession()
@@ -89,6 +90,10 @@ export default function StockOpnamePage() {
       setJumlahBarang('')
       setCatatan('')
     }
+
+    setTimeout(() => {
+    quantityInputRef.current?.focus();
+  }, 0);
   }
 
   const handleSaveData = async () => {
@@ -250,6 +255,7 @@ export default function StockOpnamePage() {
               <div className="space-y-2">
                 <Label htmlFor="jumlah">Jumlah Barang</Label>
                 <Input
+                  ref={quantityInputRef}
                   id="jumlah"
                   type="number"
                   placeholder="0"
