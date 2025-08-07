@@ -96,7 +96,7 @@ export default function HomePage() {
                 Manajemen Produk
               </CardTitle>
               <CardDescription>
-                Kelola data produk, tambah produk baru, atau import dari CSV
+                Update stok produk, tambah produk baru 
               </CardDescription>
             </CardHeader>
             <CardContent>
