@@ -135,7 +135,7 @@ export default function SessionsPage() {
             Kembali
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Riwayat Stock Opname</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Riwayat</h1>
             <p className="text-gray-600">Lihat semua sesi stock opname yang pernah dilakukan</p>
           </div>
         </div>
