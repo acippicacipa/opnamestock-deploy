@@ -187,6 +187,15 @@ export default function SessionsPage() {
                             Lanjutkan
                           </Button>
                           </div>
+                          <div>
+                            <Button 
+                              size="sm"
+                              onClick={() => handleViewReport(session.id)}
+                            >
+                              <FileSpreadsheet className="h-4 w-4 mr-2" />
+                              Hasil Sementara
+                            </Button>
+                          </div>
                         ) : (
                           <>
                           <div>
