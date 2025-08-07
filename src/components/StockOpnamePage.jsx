@@ -270,7 +270,7 @@ export default function StockOpnamePage() {
                 <Label htmlFor="catatan">Catatan (Opsional)</Label>
                 <Textarea
                   id="catatan"
-                  placeholder="Tambahkan catatan jika diperlukan..."
+                  placeholder="Tambah catatan bila perlu"
                   value={catatan}
                   onChange={(e) => setCatatan(e.target.value)}
                   rows={3}
