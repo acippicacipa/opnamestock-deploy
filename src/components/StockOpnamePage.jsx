@@ -312,7 +312,7 @@ export default function StockOpnamePage() {
                         <div className="flex-1">
                           <div className="font-medium">{detail.product.nama_produk}</div>
                           <div className="text-sm text-gray-500">
-                            {detail.product.kode_produk} • Stok : {detail.product.saldo_awal}
+                            {detail.product.kode_produk} • Stok : {detail.saldo_awal}
                           </div>
                           {detail.catatan && (
                             <div className="text-sm text-gray-600 mt-1">
