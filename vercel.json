@@ -3,6 +3,10 @@
     {
       "source": "/:path*",
       "destination": "/index.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "http://acippicacipa.pythonanywhere.com/api/:path*"
     }
   ]
 }
